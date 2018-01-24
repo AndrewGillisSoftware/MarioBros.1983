@@ -1,0 +1,28 @@
+Class Diagrams
+
+UI - Overlay, Menu, Leaderboards
+  Text
+
+Enviroment - holds map
+  Array of Tiles - map
+  background
+
+Tile - Piece of map
+  Texture - animations
+  Bounding Box - collisions
+  
+Entity - Moving charicters and player
+  Texture
+  Position
+  direction
+  speed/velocity
+  paralized
+  
+  
+  Sound
+
+SoundManager
+
+Animation
+
+Game - game logic loop for handling stuff and frame handling
