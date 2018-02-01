@@ -1,16 +1,31 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 
-using namespace sf;
+struct Animation
+{
+	int frameCount;
+	sf::IntRect bounds;
+	int speed;
+	bool loop;
+};
 
-#pragma once
-class Entity : public Sprite
+class Entity : public sf::Sprite
 {
 public:
 	Entity();
 	~Entity();
 
+	void PlayAnimation(int index);
+	inline void Flip(bool right);
+
+	virtual void update();
+
+	virtual Animation *GetAnimiation(int index) = 0;
+	virtual bool HasGravity() { return true; }
+
 private:
 	int team;
+	Animation *animation;
 
 };
 

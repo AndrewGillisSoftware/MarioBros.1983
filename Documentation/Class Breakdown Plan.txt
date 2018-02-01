@@ -1,5 +1,6 @@
 Mario
 	Entity
+		Type
 		Team
 		Positiion
 		Size/BoundingBox
