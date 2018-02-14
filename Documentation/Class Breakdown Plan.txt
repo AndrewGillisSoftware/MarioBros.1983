@@ -1,0 +1,24 @@
+Mario
+	Entity
+		Type
+		Team
+		Positiion
+		Size/BoundingBox
+		Texture(s)
+		Sound(s)
+		Tile
+			Friction
+		Charicater
+			Movement
+		Player
+			Movement
+	Game
+		Levels
+	Level
+		Map
+		Characters
+	Enviroment/Map
+		Tile Array
+	UI
+		Text (Entities?)
+	SoundManager
