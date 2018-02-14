@@ -1,17 +1,33 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <unordered_map>
+
 using namespace sf;
 
-#pragma once
+enum class AssetType
+{
+	Texture,
+	Sound
+};
+
 class AssetManager
 {
 public:
 	AssetManager();
 	~AssetManager();
-	const Texture *getTexture(std::string) const;
+
+
+	template <typename AssetT>
+	const AssetT *getAsset(std::string name) const
+	{
+		auto it = assets.find(name);
+		if (it != assets.end())
+			return static_cast<AssetT *>(it->second);
+		return nullptr;
+	}
 
 private:
-	std::unordered_map<std::string, sf::Texture> textures;
+	std::unordered_map<std::string, void *> assets;
 };
 

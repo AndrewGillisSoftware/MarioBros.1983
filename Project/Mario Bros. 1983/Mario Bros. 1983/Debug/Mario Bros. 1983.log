@@ -1,3 +1,12 @@
-﻿  Game.cpp
-  Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
-  Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.pdb (Partial PDB)
+﻿  Player.cpp
+  main.cpp
+  Game.cpp
+  Entity.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Collidable.cpp
+  AssetManager.cpp
+  Generating Code...
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\player.cpp(23): warning C4715: 'Player::GetAnimation': not all control paths return a value
+AssetManager.obj : error LNK2019: unresolved external symbol "public: __thiscall sf::SoundBuffer::SoundBuffer(void)" (??0SoundBuffer@sf@@QAE@XZ) referenced in function "public: __thiscall AssetManager::AssetManager(void)" (??0AssetManager@@QAE@XZ)
+AssetManager.obj : error LNK2019: unresolved external symbol "public: bool __thiscall sf::SoundBuffer::loadFromFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?loadFromFile@SoundBuffer@sf@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "public: __thiscall AssetManager::AssetManager(void)" (??0AssetManager@@QAE@XZ)
+C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe : fatal error LNK1120: 2 unresolved externals

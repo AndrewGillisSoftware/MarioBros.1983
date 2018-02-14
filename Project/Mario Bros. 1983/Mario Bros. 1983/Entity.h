@@ -23,6 +23,7 @@ public:
 
 	virtual void update();
 
+	//virtual const sf::Texture *GetTexture() = 0;
 	virtual const Animation *GetAnimation(int index) = 0;
 	virtual bool HasGravity() { return true; }
 
@@ -30,5 +31,6 @@ private:
 	int team;
 	const Animation *animation;
 	unsigned long long startAnimTime;
+
 };
 

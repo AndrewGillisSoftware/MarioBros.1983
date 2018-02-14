@@ -1,34 +1,60 @@
 #include "AssetManager.h"
 
-static std::vector<std::string> Textures =
+static const std::unordered_map<AssetType, std::vector<std::string>> ToLoad =
 {
-	"character_sheet_Experimental",
-	"misc_sheet",
-	"title_sheet" 
+	{
+		AssetType::Texture,
+		{
+			"character_sheet",
+			"misc_sheet",
+			"title_sheet"
+		}
+	},
+	{
+		AssetType::Sound,
+		{
+			""
+		}
+	}
 };
 
 AssetManager::AssetManager()
 {
-	Image img;
-	for (std::string &name : Textures)
+	for (auto it = ToLoad.begin(); it != ToLoad.end(); ++it)
 	{
-		img.loadFromFile("textures/" + name + ".png");
-		img.createMaskFromColor(Color(0x303030));
+		for (const std::string &name : it->second)
+		{
+			void *asset = nullptr;
+			switch (it->first)
+			{
+				case AssetType::Texture:
+				{
+					sf::Image img;
+					img.loadFromFile("textures/" + name + ".png");
+					img.createMaskFromColor(sf::Color(0x303030));
 
-		Texture texture;
-		texture.loadFromImage(img);
-		textures.insert(std::make_pair(name, texture));
+					sf::Texture *texture = new sf::Texture();
+					texture->loadFromImage(img);
+					break;
+				}
+
+				case AssetType::Sound:
+				{
+					sf::SoundBuffer *sound = new sf::SoundBuffer();
+					sound->loadFromFile("sounds/" + name + ".wav");
+					asset = sound;
+					break;
+				}
+			}
+
+			if (asset)
+				assets.insert(std::make_pair(name, asset));
+		}
 	}
 }
 
 AssetManager::~AssetManager()
 {
-}
-
-const Texture *AssetManager::getTexture(std::string name) const
-{
-	auto it = textures.find(name);
-	if (it != textures.end())
-		return &it->second;
-	return nullptr;
+	for (auto it = assets.begin(); it != assets.end(); ++it)
+		delete it->second;
 }

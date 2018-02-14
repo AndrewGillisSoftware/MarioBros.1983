@@ -3,7 +3,7 @@
 Game::Game(sf::RenderWindow &window)
 	: window(window)
 {
-	entities.push_back(new Player(assets.getTexture("character_sheet_Experimental"), sf::Vector2f(15, 15)));
+	entities.push_back(new Player(assets.getAsset<sf::Texture>("character_sheet"), sf::Vector2f(15, 15)));
 }
 
 Game::~Game()
