@@ -8,7 +8,7 @@ public:
 		run, idle, slide, death, death_fire
 	};
 
-	Player();
+	Player(const sf::Texture *texture, sf::Vector2f pos);
 	~Player();
 
 	const Animation *GetAnimation(int index);

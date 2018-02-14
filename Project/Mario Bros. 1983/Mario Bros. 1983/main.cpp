@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(100, 100), "SFML works!");
 	Game game(window);
 
 	while (window.isOpen())
@@ -15,6 +15,7 @@ int main()
 		}
 
 		window.clear();
+		game.update();
 		game.draw();
 		window.display();
 	}

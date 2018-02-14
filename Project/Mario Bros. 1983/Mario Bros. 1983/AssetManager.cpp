@@ -2,19 +2,21 @@
 
 static std::vector<std::string> Textures =
 {
-	"character_sheet",
+	"character_sheet_Experimental",
 	"misc_sheet",
-	"title_sheet"
+	"title_sheet" 
 };
 
 AssetManager::AssetManager()
 {
-	Texture texture;
-
-
+	Image img;
 	for (std::string &name : Textures)
 	{
-		texture.loadFromFile(name.append(".png"));
+		img.loadFromFile("textures/" + name + ".png");
+		img.createMaskFromColor(Color(0x303030));
+
+		Texture texture;
+		texture.loadFromImage(img);
 		textures.insert(std::make_pair(name, texture));
 	}
 }
@@ -23,7 +25,7 @@ AssetManager::~AssetManager()
 {
 }
 
-const Texture *AssetManager::getTexture(std::string name)
+const Texture *AssetManager::getTexture(std::string name) const
 {
 	auto it = textures.find(name);
 	if (it != textures.end())

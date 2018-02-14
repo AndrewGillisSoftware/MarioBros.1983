@@ -9,7 +9,7 @@ class AssetManager
 public:
 	AssetManager();
 	~AssetManager();
-	const Texture *getTexture(std::string);
+	const Texture *getTexture(std::string) const;
 
 private:
 	std::unordered_map<std::string, sf::Texture> textures;
