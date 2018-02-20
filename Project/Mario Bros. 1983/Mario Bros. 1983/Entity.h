@@ -27,6 +27,9 @@ public:
 	virtual const Animation *GetAnimation(int index) = 0;
 	virtual bool HasGravity() { return true; }
 
+protected:
+	sf::Vector2f position, velocity;
+
 private:
 	int team;
 	const Animation *animation;

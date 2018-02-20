@@ -13,7 +13,10 @@ static const std::unordered_map<AssetType, std::vector<std::string>> ToLoad =
 	{
 		AssetType::Sound,
 		{
-			""
+			"boss",
+			"jump",
+			"run",
+			"select"
 		}
 	}
 };

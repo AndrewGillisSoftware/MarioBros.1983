@@ -21,3 +21,25 @@ const Animation *Player::GetAnimation(int index)
 		}
 	}
 }
+
+void Player::changeVelocity()
+{
+	sf::Vector2f nv;
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		nv.x = velocity.x
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+
+	}
+
+
+
+	velocity.x;
+}
