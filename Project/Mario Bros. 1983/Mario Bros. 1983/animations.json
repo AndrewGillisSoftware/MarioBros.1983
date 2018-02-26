@@ -1,0 +1,30 @@
+{
+  "animations": [
+    {
+      "name": "run",
+      "frames": 6,
+      "speed": 200,
+      "bounds": [ 1, 12, 18, 21 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "sound": "run"
+        }
+      ],
+      "loop": true
+    },
+    {
+      "name": "jump",
+      "frames": 1,
+      "speed": 200,
+      "bounds": [ 1, 12, 18, 21 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "sound": "run"
+        }
+      ],
+      "loop": true
+    }
+  ]
+}

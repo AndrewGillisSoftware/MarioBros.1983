@@ -1,9 +1,9 @@
 #include "Entity.h"
 #include <Windows.h>
 
-Entity::Entity(const sf::Texture *texture, sf::Vector2f pos)
+Entity::Entity(const AssetManager *assets, sf::Vector2f pos)
 {
-	setTexture(*texture);
+	this->assets = assets;
 	setPosition(pos);
 	animation = nullptr;
 }
@@ -12,10 +12,10 @@ Entity::~Entity()
 {
 }
 
-void Entity::PlayAnimation(int index)
+void Entity::PlayAnimation(std::string name)
 {
 	startAnimTime = GetTickCount64();
-	animation = GetAnimation(index);
+	animation = assets->getAsset<Animation>(name);
 }
 
 void Entity::Flip(bool right) { setScale(!right ? 0 : -1, 0); }

@@ -1,25 +1,14 @@
 #include "Player.h"
 
-Player::Player(const sf::Texture *texture, sf::Vector2f pos)
-	: Entity(texture, pos)
+Player::Player(const AssetManager *assets, sf::Vector2f pos)
+	: Entity(assets, pos)
 {
-	PlayAnimation(run);
+	setTexture(*assets->getAsset<sf::Texture>("character_sheet"));
+	PlayAnimation("run");
 }
 
 Player::~Player()
 {
-}
-
-const Animation *Player::GetAnimation(int index)
-{
-	switch (index)
-	{
-		case run:
-		{
-			static Animation animation(6, sf::IntRect{ 1,12,18,21 }, 200, true);
-			return &animation;
-		}
-	}
 }
 
 void Player::changeVelocity()
@@ -28,7 +17,7 @@ void Player::changeVelocity()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		nv.x = velocity.x
+		nv.x = velocity.x;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{

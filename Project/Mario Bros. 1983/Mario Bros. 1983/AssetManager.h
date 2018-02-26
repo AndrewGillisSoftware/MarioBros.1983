@@ -1,14 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Animation.h"
 #include <unordered_map>
+#include "nlohmann/json.hpp"
+#include <fstream>
 
 using namespace sf;
+using namespace nlohmann;
 
 enum class AssetType
 {
 	Texture,
-	Sound
+	Sound,
+	Animation
 };
 
 class AssetManager
@@ -16,7 +21,6 @@ class AssetManager
 public:
 	AssetManager();
 	~AssetManager();
-
 
 	template <typename AssetT>
 	const AssetT *getAsset(std::string name) const

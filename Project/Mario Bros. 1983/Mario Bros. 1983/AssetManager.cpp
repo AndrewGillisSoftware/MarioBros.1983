@@ -18,6 +18,12 @@ static const std::unordered_map<AssetType, std::vector<std::string>> ToLoad =
 			"run",
 			"select"
 		}
+	},
+	{
+		AssetType::Animation,
+		{
+			"animations"
+		}
 	}
 };
 
@@ -27,7 +33,6 @@ AssetManager::AssetManager()
 	{
 		for (const std::string &name : it->second)
 		{
-			void *asset = nullptr;
 			switch (it->first)
 			{
 				case AssetType::Texture:
@@ -38,20 +43,42 @@ AssetManager::AssetManager()
 
 					sf::Texture *texture = new sf::Texture();
 					texture->loadFromImage(img);
+					assets.insert(std::make_pair(name, texture));
 					break;
 				}
 
 				case AssetType::Sound:
 				{
 					sf::SoundBuffer *sound = new sf::SoundBuffer();
-					sound->loadFromFile("sounds/" + name + ".wav");
-					asset = sound;
+					sound->loadFromFile("sound/" + name + ".wav");
+					assets.insert(std::make_pair(name, sound));
+					break;
+				}
+
+				case AssetType::Animation:
+				{
+					std::ifstream ifs(name + ".json");
+					std::string str((std::istreambuf_iterator<char>(ifs)),
+						std::istreambuf_iterator<char>());
+					json j = json::parse(str);
+					for (auto &a : j["animations"].array())
+					{
+						Animation *animation = new Animation();
+						animation->frameCount = a["frames"].get<int32_t>();
+						animation->speed = a["speed"].get<int32_t>();
+						animation->bounds.left = a["bounds"][0].get<int32_t>();
+						animation->bounds.top = a["bounds"][1].get<int32_t>();
+						animation->bounds.width = a["bounds"][2].get<int32_t>();
+						animation->bounds.height = a["bounds"][3].get<int32_t>();
+						animation->loop = a["loop"].get<bool>();
+						animation->sounds = new std::string[a["sounds"].array().size()];
+						for (size_t i = 0; i < a["sounds"].array().size(); i++)
+							animation->sounds[i] = a["sounds"]["name"].get<std::string>();
+						assets.insert(std::make_pair(a["name"].get<std::string>(), animation));
+					}
 					break;
 				}
 			}
-
-			if (asset)
-				assets.insert(std::make_pair(name, asset));
 		}
 	}
 }
