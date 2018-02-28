@@ -3,8 +3,8 @@
 Player::Player(const AssetManager *assets, sf::Vector2f pos)
 	: Entity(assets, pos)
 {
-	setTexture(*assets->getAsset<sf::Texture>("character_sheet"));
-	PlayAnimation("run");
+	setTexture(*assets->getAsset<sf::Texture>("textures/character_sheet"));
+	PlayAnimation("animations/run");
 }
 
 Player::~Player()

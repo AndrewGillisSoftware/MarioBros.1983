@@ -3,28 +3,37 @@
     {
       "name": "run",
       "frames": 6,
-      "speed": 200,
+      "speed": 100,
       "bounds": [ 1, 12, 18, 21 ],
       "sounds": [
         {
           "frames": [ 2, 5 ],
-          "sound": "run"
+          "name": "sounds/run"
         }
       ],
       "loop": true
     },
     {
+      "name": "idle",
+      "frames": 1,
+      "speed": 200,
+      "bounds": [ 109, 12, 18, 21 ],
+      "sounds": [
+      ],
+      "loop": false
+    },
+    {
       "name": "jump",
       "frames": 1,
       "speed": 200,
-      "bounds": [ 1, 12, 18, 21 ],
+      "bounds": [ 127, 10, 18, 23 ],
       "sounds": [
         {
-          "frames": [ 2, 5 ],
-          "sound": "run"
+          "frames": [ 0 ],
+          "name": "sounds/jump"
         }
       ],
-      "loop": true
+      "loop": false
     }
   ]
 }

@@ -3,7 +3,6 @@
 #include <SFML/Audio.hpp>
 #include "Animation.h"
 #include <unordered_map>
-#include "nlohmann/json.hpp"
 #include <fstream>
 
 using namespace sf;
@@ -23,11 +22,14 @@ public:
 	~AssetManager();
 
 	template <typename AssetT>
-	const AssetT *getAsset(std::string name) const
+	AssetT *getAsset(std::string name) const
 	{
 		auto it = assets.find(name);
 		if (it != assets.end())
-			return static_cast<AssetT *>(it->second);
+		{
+			AssetT *ptr = (AssetT *)it->second;
+			return ptr;
+		}
 		return nullptr;
 	}
 

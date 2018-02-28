@@ -25,7 +25,8 @@ private:
 	const AssetManager *assets;
 	int team;
 	const Animation *animation;
-	uint64_t startAnimTime;
+	uint64_t animStartTime;
+	int32_t animFrame;
 	sf::Sound sound;
 };
 

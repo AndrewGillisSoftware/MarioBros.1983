@@ -59,5 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="animations.json" />
+    <None Include="levels.json" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,24 @@
+{
+  "levels": [
+    {
+      "name": "test",
+      "textures": [
+        {
+          "name": "pipe",
+          "bounds": [ 0, 0, 0, 0 ]
+        },
+        {
+          "name": "pow",
+          "bounds": [ 0, 0, 0, 0 ]
+        }
+      ]
+      "objects": [
+        {
+          "type": 1,
+          "length": 10,
+          "texture":  "pow"
+        }
+      ]
+    }
+  ]
+}
