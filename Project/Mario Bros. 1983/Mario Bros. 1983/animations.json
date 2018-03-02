@@ -34,6 +34,19 @@
         }
       ],
       "loop": false
+    },
+    {
+      "name": "shell",
+      "frames": 6,
+      "speed": 100,
+      "bounds": [ 1, 137, 18, 16 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "name": "sounds/jump"
+        }
+      ],
+      "loop": true
     }
   ]
 }

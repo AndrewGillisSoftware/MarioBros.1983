@@ -1,3 +1,11 @@
-﻿  Player.cpp
-  Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
-  Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.pdb (Partial PDB)
+﻿  main.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\main.cpp(18): error C2039: 'update': is not a member of 'Game'
+  c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\game.h(9): note: see declaration of 'Game'
+  Level.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\level.cpp(11): warning C4244: 'argument': conversion from 'int32_t' to 'float', possible loss of data
+  Game.cpp
+  Entity.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(5): error C2512: 'Collidable': no appropriate default constructor available
+  c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\collidable.h(8): note: see declaration of 'Collidable'
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(12): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...

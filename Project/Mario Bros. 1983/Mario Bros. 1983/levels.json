@@ -4,8 +4,8 @@
       "name": "test",
       "textures": [
         {
-          "name": "pipe",
-          "bounds": [ 0, 0, 0, 0 ]
+          "name": "pipe1",
+          "bounds": [ 0, 0, 0, 0 ],
         },
         {
           "name": "pow",
@@ -14,7 +14,7 @@
       ]
       "objects": [
         {
-          "type": 1,
+          "type": 2,
           "length": 10,
           "texture":  "pow"
         }

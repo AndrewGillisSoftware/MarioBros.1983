@@ -1,29 +1,19 @@
 #include "Game.h"
+#include "Level.h"
 
 Game::Game(sf::RenderWindow &window)
 	: window(window)
 {
-	entities.push_back(new Player(&assets, sf::Vector2f(15, 15)));
+	level = new Level(this);
 }
 
 Game::~Game()
 {
-	for (Entity *entity : entities)
-		delete entity;
-}
-
-void Game::update()
-{
-	for (Entity *entity : entities)
-	{
-		entity->update();
-	}
+	delete level;
 }
 
 void Game::draw()
 {
-	for (Entity *entity : entities)
-	{
-		window.draw(*entity);
-	}
+	if (level)
+		level->draw();
 }

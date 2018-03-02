@@ -4,17 +4,20 @@
 #include "Player.h"
 #include "AssetManager.h"
 
+class Level;
 class Game
 {
 public:
 	Game(sf::RenderWindow &window);
 	~Game();
 
-	void update();
 	void draw();
+
+	inline AssetManager *getAssets() { return &assets; }
+	inline sf::RenderWindow *getWindow() { return &window; }
 
 private:
 	sf::RenderWindow &window;
-	std::vector<Entity *> entities;
 	AssetManager assets;
+	Level *level;
 };
