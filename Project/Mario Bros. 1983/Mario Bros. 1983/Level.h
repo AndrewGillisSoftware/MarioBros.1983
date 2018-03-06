@@ -3,6 +3,11 @@
 #include "Entity.h"
 #include "Player.h"
 
+enum class objectType
+{
+	tile, pow, pipe 
+};
+
 class Level
 {
 public:

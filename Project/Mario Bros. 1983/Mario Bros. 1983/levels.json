@@ -5,18 +5,45 @@
       "textures": [
         {
           "name": "pipe1",
-          "bounds": [ 0, 0, 0, 0 ],
+          "bounds": [ 0, 15, 32, 46 ]
+        },
+        {
+          "name": "pipe2",
+          "bounds": [ 224, 15, 32, 46 ]
         },
         {
           "name": "pow",
-          "bounds": [ 0, 0, 0, 0 ]
+          "bounds": [ 257, 1381, 16, 16 ]
+        },
+        {
+          "name": "pow2",
+          "bounds": [ 293, 1381, 16, 13 ]
+        },
+        {
+          "name": "pow3",
+          "bounds": [ 329, 1381, 16, 9 ]
+        },
+        {
+          "name": "blueTile",
+          "bounds": [ 257, 1447, 8, 8 ]
         }
       ]
       "objects": [
         {
           "type": 2,
+          "texture": "pow",
+          "position": [ 16, 15 ]
+        },
+        {
+          "type": 1,
           "length": 10,
-          "texture":  "pow"
+          "texture": "blueTile",
+          "position": [ 5, 12 ]
+        },
+        {
+          "type": 1,
+          "texture": "pipe",
+          "position": [ 0 , 0 ]
         }
       ]
     }
