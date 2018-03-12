@@ -1,8 +1,18 @@
 #include "Collidable.h"
+#include "Level.h"
 #include <Windows.h>
 
-Collidable::Collidable(const AssetManager *assets, sf::Vector2f pos)
+Collidable::Collidable()
 {
+	this->assets = nullptr;
+	animation = nullptr;
+	animStartTime = 0;
+	animFrame = 0;
+}
+
+Collidable::Collidable(const Level *level, const AssetManager *assets, sf::Vector2f pos)
+{
+	this->level = level;
 	this->assets = assets;
 	setPosition(pos);
 	animation = nullptr;
@@ -35,8 +45,14 @@ void Collidable::update()
 		if (frame >= animation->frameCount - 1 && !animation->loop)
 			animation = nullptr;
 	}
+
+	for (Entity *entity : level->getEntities())
+	{
+
+	}
 }
 
-Collidable::~Collidable()
+bool Collidable::onCollision(Collidable *other)
 {
+	return true;
 }

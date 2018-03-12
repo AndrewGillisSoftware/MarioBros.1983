@@ -7,6 +7,7 @@ static const std::unordered_map<AssetType, std::vector<std::string>> ToLoad =
 		{
 			"character_sheet",
 			"misc_sheet",
+			"misc_sheet_experimental",
 			"title_sheet"
 		}
 	},

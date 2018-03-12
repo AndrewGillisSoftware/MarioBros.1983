@@ -4,7 +4,7 @@
 Game::Game(sf::RenderWindow &window)
 	: window(window)
 {
-	level = new Level(this);
+	level = new Level(this, "levels.json", "Level 1");
 }
 
 Game::~Game()

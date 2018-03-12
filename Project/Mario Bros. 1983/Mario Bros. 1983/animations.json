@@ -47,6 +47,45 @@
         }
       ],
       "loop": true
+    },
+    {
+      "name": "middleTile",
+      "frames": 6,
+      "speed": 100,
+      "bounds": [ 135, 749, 8, 8 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "name": "sounds/jump"
+        }
+      ],
+      "loop": true
+    },
+    {
+      "name": "leftTile",
+      "frames": 6,
+      "speed": 100,
+      "bounds": [ 135, 749, 8, 8 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "name": "sounds/jump"
+        }
+      ],
+      "loop": true
+    },
+    {
+      "name": "leftTile",
+      "frames": 6,
+      "speed": 100,
+      "bounds": [ 135, 749, 8, 8 ],
+      "sounds": [
+        {
+          "frames": [ 2, 5 ],
+          "name": "sounds/jump"
+        }
+      ],
+      "loop": true
     }
   ]
 }

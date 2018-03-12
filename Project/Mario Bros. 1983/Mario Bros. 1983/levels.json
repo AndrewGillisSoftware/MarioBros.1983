@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "name": "test",
+      "name": "Level 1",
       "textures": [
         {
           "name": "pipe1",
@@ -27,23 +27,25 @@
           "name": "blueTile",
           "bounds": [ 257, 1447, 8, 8 ]
         }
-      ]
+      ],
       "objects": [
         {
-          "type": 2,
+          "type": 1,
+          "length": 1,
           "texture": "pow",
           "position": [ 16, 15 ]
         },
         {
-          "type": 1,
-          "length": 10,
+          "type": 0,
+          "length": 11,
           "texture": "blueTile",
           "position": [ 5, 12 ]
         },
         {
-          "type": 1,
+          "type": 2,
+          "length": 1,
           "texture": "pipe",
-          "position": [ 0 , 0 ]
+          "position": [ 0, 0 ]
         }
       ]
     }
