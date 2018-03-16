@@ -4,17 +4,18 @@
 class Entity : public Collidable
 {
 public:
-	Entity(const AssetManager *assets, sf::Vector2f pos);
-	~Entity();
+	Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos);
+	virtual ~Entity() { }
 
-	inline void flip(bool right);
+	virtual void update();
 
-	//virtual const sf::Texture *GetTexture() = 0;
+	void flip(bool right);
+
 	virtual bool hasGravity() { return true; }
-
-	sf::FloatRect getBounds();
 
 protected:
 	sf::Vector2f velocity;
-};
 
+private:
+	sf::Clock clock;
+};

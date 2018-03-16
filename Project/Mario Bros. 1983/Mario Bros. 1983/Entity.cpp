@@ -1,24 +1,31 @@
 #include "Entity.h"
+#include "Level.h"
 #include <Windows.h>
 
-Entity::Entity(const AssetManager *assets, sf::Vector2f pos)
-	: Collidable(assets, pos)
+Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
+	: Collidable(level, assets, pos)
 {
 
 }
 
-Entity::~Entity()
+void Entity::update()
 {
+	Collidable::update();
+	sf::Time deltaTime = clock.restart();
+	float deltaSeconds = deltaTime.asSeconds();
+	move(velocity * deltaSeconds);
+	velocity *= (1.0f - (deltaSeconds * 1.25f));
+	flip(velocity.x > 0);
+
+	const sf::Vector2f &pos = getPosition();
+	const Collidable *tile = level->getTile(pos.x / 8, pos.y / 8);
+	if (!tile || tile->getType() == ObjectType::None)
+		velocity.y = 80.0f;
+	else if (velocity.y >= 1.0f)
+		velocity.y = 0.0f;
 }
 
-void Entity::flip(bool right) { setScale(!right ? 0 : -1, 0); }
-
-sf::FloatRect Entity::getBounds()
+void Entity::flip(bool right)
 {
-	const Vector2f &pos = getPosition();
-	const Vector2u size = getTexture()->getSize();
-	if (getTextureRect() != sf::IntRect())
-		size = Vector2u(0, 0);
-
-	sf::FloatRect bounds(getPosition().x, getPosition().y, );
+	setScale(!right ? 1 : -1, 1);
 }

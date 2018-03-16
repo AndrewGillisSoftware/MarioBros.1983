@@ -11,9 +11,9 @@ public:
 	void draw();
 
 	inline std::string getName() { return name; }
-
 	const std::list<Entity *> &getEntities() const { return entities; }
-	Collidable *getTile(uint8_t x, uint8_t y) { return &tiles[x][y]; }
+	const Collidable *getTile(uint8_t x, uint8_t y) const;
+	const Game *getGame() const { return game; }
 
 private:
 	Game *game;

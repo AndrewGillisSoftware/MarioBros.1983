@@ -27,7 +27,7 @@ public:
 		auto it = assets.find(name);
 		if (it != assets.end())
 		{
-			AssetT *ptr = (AssetT *)it->second;
+			AssetT *ptr = static_cast<AssetT *>(it->second);
 			return ptr;
 		}
 		return nullptr;

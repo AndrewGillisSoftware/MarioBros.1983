@@ -18,6 +18,7 @@ public:
 
 private:
 	sf::RenderWindow &window;
+	sf::View view;
 	AssetManager assets;
 	Level *level;
 };

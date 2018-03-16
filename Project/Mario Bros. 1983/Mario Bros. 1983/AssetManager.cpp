@@ -40,7 +40,7 @@ AssetManager::AssetManager()
 				{
 					sf::Image img;
 					img.loadFromFile("textures/" + name + ".png");
-					img.createMaskFromColor(sf::Color(0x303030));
+					img.createMaskFromColor(sf::Color(0x303030FF));
 
 					sf::Texture *texture = new sf::Texture();
 					texture->loadFromImage(img);

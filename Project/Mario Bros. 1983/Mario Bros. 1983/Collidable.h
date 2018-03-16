@@ -7,6 +7,7 @@
 
 enum class ObjectType
 {
+	None,
 	Tile,
 	Pow,
 	Pipe
@@ -26,11 +27,14 @@ public:
 
 	virtual bool onCollision(Collidable *other);
 
+	const sf::FloatRect &getBounds() const;
+	ObjectType getType() const { return type; }
+
 protected:
 	const AssetManager *assets;
+	const Level *level;
 
 private:
-	const Level *level;
 	const Animation *animation;
 	uint64_t animStartTime;
 	int32_t animFrame;

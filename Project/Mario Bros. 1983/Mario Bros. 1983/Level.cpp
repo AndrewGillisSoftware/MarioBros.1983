@@ -7,7 +7,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 	for (int32_t x = 0; x < 32; x++)
 	{
 		for (int32_t y = 0; y < 24; y++)
-			tiles[x][y] = Collidable(game->getAssets(), sf::Vector2f(8 * x, 8 * y));
+			tiles[x][y] = Collidable(this, game->getAssets(), sf::Vector2f(8 * x, 8 * y));
 	}
 
 	std::ifstream ifs(file);
@@ -42,7 +42,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 			uint8_t length = object["length"].get<uint8_t>();
 			for (uint8_t x = 0; x < length; x++, pos.x++)
 			{
-				Collidable tile(game->getAssets(), sf::Vector2f(8 * pos.x, 8 * pos.y));
+				Collidable tile(this, game->getAssets(), sf::Vector2f(8 * pos.x, 8 * pos.y));
 				tile.setTexture(*game->getAssets()->getAsset<sf::Texture>("textures/misc_sheet_experimental"));
 				tile.setTextureRect(textures[texture]);
 				tiles[pos.x][pos.y] = tile;
@@ -51,7 +51,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 		break;
 	}
 
-	Player *player = new Player(game->getAssets(), sf::Vector2f(15, 15));
+	Player *player = new Player(this, game->getAssets(), sf::Vector2f(15, 250));
 	entities.push_back(player);
 }
 
@@ -76,4 +76,11 @@ void Level::draw()
 			game->getWindow()->draw(tiles[x][y]);
 		}
 	}
+}
+
+const Collidable *Level::getTile(uint8_t x, uint8_t y) const
+{
+	if (x >= 32 || y >= 24)
+		return nullptr;
+	return &tiles[x][y];
 }

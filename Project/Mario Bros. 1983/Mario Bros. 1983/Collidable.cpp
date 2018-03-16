@@ -8,6 +8,7 @@ Collidable::Collidable()
 	animation = nullptr;
 	animStartTime = 0;
 	animFrame = 0;
+	type = ObjectType::None;
 }
 
 Collidable::Collidable(const Level *level, const AssetManager *assets, sf::Vector2f pos)
@@ -18,6 +19,7 @@ Collidable::Collidable(const Level *level, const AssetManager *assets, sf::Vecto
 	animation = nullptr;
 	animStartTime = 0;
 	animFrame = -1;
+	type = ObjectType::Tile;
 }
 
 void Collidable::PlayAnimation(std::string name)
@@ -48,8 +50,20 @@ void Collidable::update()
 
 	for (Entity *entity : level->getEntities())
 	{
-
+		if (entity->getBounds().intersects(getBounds()))
+			if (entity->onCollision(this))
+				onCollision(this);
 	}
+}
+
+const sf::FloatRect &Collidable::getBounds() const
+{
+	const Vector2f &pos = getPosition();
+	Vector2u size = getTexture()->getSize();
+	const sf::IntRect &rect = getTextureRect();
+	if (rect != sf::IntRect(0, 0, 0, 0))
+		size = Vector2u(rect.width, rect.height);
+	return sf::FloatRect(pos.x, pos.y, size.x, size.y);
 }
 
 bool Collidable::onCollision(Collidable *other)
