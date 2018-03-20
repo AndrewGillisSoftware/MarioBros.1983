@@ -7,7 +7,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 	for (int32_t x = 0; x < 32; x++)
 	{
 		for (int32_t y = 0; y < 24; y++)
-			tiles[x][y] = Collidable(this, game->getAssets(), sf::Vector2f(8 * x, 8 * y));
+			tiles[x][y] = Collidable();
 	}
 
 	std::ifstream ifs(file);
@@ -45,6 +45,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 				Collidable tile(this, game->getAssets(), sf::Vector2f(8 * pos.x, 8 * pos.y));
 				tile.setTexture(*game->getAssets()->getAsset<sf::Texture>("textures/misc_sheet_experimental"));
 				tile.setTextureRect(textures[texture]);
+				tile.setOrigin(tile.getTextureRect().width / 2, tile.getTextureRect().height / 2);
 				tiles[pos.x][pos.y] = tile;
 			}
 		}

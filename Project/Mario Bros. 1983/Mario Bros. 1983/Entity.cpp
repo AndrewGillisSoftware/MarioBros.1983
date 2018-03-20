@@ -5,7 +5,6 @@
 Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 	: Collidable(level, assets, pos)
 {
-
 }
 
 void Entity::update()
@@ -14,15 +13,18 @@ void Entity::update()
 	sf::Time deltaTime = clock.restart();
 	float deltaSeconds = deltaTime.asSeconds();
 	move(velocity * deltaSeconds);
-	velocity *= (1.0f - (deltaSeconds * 1.25f));
+	velocity *= (1.0f - (deltaSeconds * 5.25f));
 	flip(velocity.x > 0);
 
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = level->getTile(pos.x / 8, pos.y / 8);
-	if (!tile || tile->getType() == ObjectType::None)
+	if (!tile || tile->getType() == ObjectType::None || !getGlobalBounds().intersects(tile->getGlobalBounds()))
 		velocity.y = 80.0f;
-	else if (velocity.y >= 1.0f)
+	else if (velocity.y >= 1.0f && getGlobalBounds().intersects(tile->getGlobalBounds()))
+	{
 		velocity.y = 0.0f;
+		setPosition(pos.x, tile->getPosition().y );
+	}
 }
 
 void Entity::flip(bool right)
