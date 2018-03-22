@@ -28,8 +28,6 @@ void Collidable::PlayAnimation(std::string name)
 		return;
 	animStartTime = GetTickCount64();
 	animation = assets->getAsset<Animation>(name);
-	Collidable::update();
-	setOrigin(getTextureRect().width / 2, getTextureRect().height / 2);
 }
 
 void Collidable::update()

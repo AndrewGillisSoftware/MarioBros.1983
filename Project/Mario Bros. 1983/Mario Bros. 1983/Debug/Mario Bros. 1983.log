@@ -1,5 +1,5 @@
-﻿  Level.cpp
-c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\level.cpp(45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\level.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Entity.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(21): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
   Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.pdb (Partial PDB)
