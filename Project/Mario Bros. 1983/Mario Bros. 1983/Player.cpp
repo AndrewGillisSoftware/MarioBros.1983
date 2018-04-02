@@ -15,17 +15,36 @@ void Player::update()
 		velocity.y = -80.0f;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
 		velocity.y = 80.0f;
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		velocity.x = -80.0f;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		velocity.x = 80.0f;
-
-	if (fabsf(velocity.x) > 0.5f)
+	{
 		PlayAnimation("animations/run");
+		velocity.x = -80.0f;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		PlayAnimation("animations/run");
+		velocity.x = 80.0f;
+	}
+	else if (velocity.x != 0)
+	{
+		PlayAnimation("animations/slide");
+	}
 	else
 		PlayAnimation("animations/idle");
+	
+
+	/*if (fabsf(velocity.x) > 0.5f)
+		PlayAnimation("animations/run");
+	else if (fabsf(velocity.x) < 0.5f && fabsf(velocity.x) > 0.0f)
+	{
+		PlayAnimation("animations/slide");
+	}
+	else
+		PlayAnimation("animations/idle");*/
 }
 
 Player::~Player()

@@ -36,6 +36,19 @@
       "loop": false
     },
     {
+      "name": "slide",
+      "frames": 3,
+      "speed": 200,
+      "bounds": [ 1, 46, 18, 21 ],
+      "sounds": [
+        {
+          "frames": [ 0 ],
+          "name": "sounds/select"
+        }
+      ],
+      "loop": true
+    },
+    {
       "name": "shell",
       "frames": 6,
       "speed": 100,

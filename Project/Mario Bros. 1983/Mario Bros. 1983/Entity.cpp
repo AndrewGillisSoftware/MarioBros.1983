@@ -11,11 +11,7 @@ Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 void Entity::update()
 {
 	Collidable::update();
-	sf::Time deltaTime = clock.restart();
-	float deltaSeconds = deltaTime.asSeconds();
-	move(velocity * deltaSeconds);
-	velocity *= (1.0f - (deltaSeconds * 13.37f));
-	flip(velocity.x > 0);
+	calcVelocity();
 
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = level->getTile(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
@@ -28,6 +24,26 @@ void Entity::update()
 		setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
 	}
 
+}
+
+void Entity::calcVelocity()
+{
+	sf::Time deltaTime = clock.restart();
+	float deltaSeconds = deltaTime.asSeconds();
+	move(velocity * deltaSeconds);
+	float decel = this->getDecelRate();
+	if (velocity.x > 0.0f)
+		if (velocity.x < decel)
+			velocity.x = 0.0f;
+		else
+			velocity.x -= decel;
+	else if (velocity.x < 0.0f)
+		if (velocity.x > -decel)
+			velocity.x = 0.0f;
+		else
+			velocity.x += decel;
+	/*velocity = sf::Vector2f(std::fmaxf(0, velocity.x - decel), velocity.y - decel);*/
+	flip(velocity.x > 0.0f);
 }
 
 void Entity::flip(bool right)
