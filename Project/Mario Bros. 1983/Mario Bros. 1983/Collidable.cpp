@@ -1,6 +1,7 @@
 #include "Collidable.h"
 #include "Level.h"
 #include <Windows.h>
+#include <iostream>
 
 Collidable::Collidable()
 {
@@ -28,10 +29,12 @@ void Collidable::PlayAnimation(std::string name)
 		return;
 	animStartTime = GetTickCount64();
 	animation = assets->getAsset<Animation>(name);
+	animName = name; //anim fix **************************
 }
 
 void Collidable::update()
 {
+	//Play animations
 	if (animation)
 	{
 		int32_t frame = ((GetTickCount64() - animStartTime) % (animation->speed * animation->frameCount)) / animation->speed;
@@ -39,17 +42,21 @@ void Collidable::update()
 		rect.left += rect.width * frame;
 		setTextureRect(rect);
 
-		if (animation->sounds[frame].size() > 0 && (frame == 0 || frame != animFrame))
+		if (animation->sounds[frame].size() > 0 && /*(frame == 0 ||*/ (frame != animFrame || animName != prevAnimName))
 		{
 			sf::Sound *sound = assets->getAsset<sf::Sound>(animation->sounds[frame]);
 			sound->play();
 		}
 		animFrame = frame;
+		prevAnimName = animName; //anim fix **************************
 
 		if (frame >= animation->frameCount - 1 && !animation->loop)
 			animation = nullptr;
+
+		std::cout << frame << ", ";
 	}
 
+	//Set Collisions
 	for (Entity *entity : level->getEntities())
 	{
 		if (entity->getBounds().intersects(getBounds()))

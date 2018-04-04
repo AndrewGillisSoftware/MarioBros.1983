@@ -1,3 +1,5 @@
-﻿  Player.cpp
+﻿  Collidable.cpp
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\collidable.cpp(75): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\19ijs01\documents\github\mariobros.1983\project\mario bros. 1983\mario bros. 1983\collidable.cpp(75): warning C4172: returning address of local variable or temporary
   Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
   Mario Bros. 1983.vcxproj -> C:\Users\19ijs01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.pdb (Partial PDB)

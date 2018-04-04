@@ -4,6 +4,7 @@
 #include "Animation.h"
 #include "AssetManager.h"
 #include <SFML/Graphics/Sprite.hpp>
+#include <string>
 
 enum class ObjectType
 {
@@ -38,5 +39,6 @@ private:
 	const Animation *animation;
 	uint64_t animStartTime;
 	int32_t animFrame;
+	std::string animName = "", prevAnimName = "";
 	ObjectType type;
 };

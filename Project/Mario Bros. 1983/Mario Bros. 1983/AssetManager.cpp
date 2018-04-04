@@ -17,7 +17,8 @@ static const std::unordered_map<AssetType, std::vector<std::string>> ToLoad =
 			"boss",
 			"jump",
 			"run",
-			"select"
+			"select",
+			"skid"
 		}
 	},
 	{

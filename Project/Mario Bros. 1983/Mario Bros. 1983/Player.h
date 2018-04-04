@@ -12,9 +12,7 @@ public:
 	float getFriction() { return 50.0f; }
 	float getMaxVelocity() { return 50.0f; }
 	float getAccelRate() { return 50.0f; }
-	float getDecelRate() { return 0.1f; }
-
-	void calcVelocity();
+	float getDecelRate() { return 0.12f; }
 
 	void update();
 

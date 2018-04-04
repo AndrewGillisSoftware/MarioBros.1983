@@ -38,12 +38,12 @@
     {
       "name": "slide",
       "frames": 3,
-      "speed": 200,
+      "speed": 150,
       "bounds": [ 1, 46, 18, 21 ],
       "sounds": [
         {
           "frames": [ 0 ],
-          "name": "sounds/select"
+          "name": "sounds/skid"
         }
       ],
       "loop": true
