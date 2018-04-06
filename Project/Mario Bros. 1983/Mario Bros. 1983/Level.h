@@ -18,6 +18,6 @@ public:
 private:
 	Game *game;
 	std::list<Entity *> entities;
-	Collidable tiles[32][24];
+	Collidable tiles[32][28];
 	std::string name;
 };

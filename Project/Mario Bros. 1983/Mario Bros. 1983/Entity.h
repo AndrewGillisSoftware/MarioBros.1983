@@ -29,6 +29,7 @@ public:
 
 protected:
 	sf::Vector2f velocity;
+	bool lastDir;
 
 private:
 	sf::Clock clock;

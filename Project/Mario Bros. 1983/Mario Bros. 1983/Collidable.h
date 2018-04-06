@@ -39,6 +39,5 @@ private:
 	const Animation *animation;
 	uint64_t animStartTime;
 	int32_t animFrame;
-	std::string animName = "", prevAnimName = "";
 	ObjectType type;
 };

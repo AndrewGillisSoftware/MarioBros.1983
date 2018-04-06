@@ -12,6 +12,7 @@ void Entity::update()
 {
 	Collidable::update();
 	calcVelocity();
+	flip(lastDir);
 
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = level->getTile(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
@@ -43,7 +44,6 @@ void Entity::calcVelocity()
 		else
 			velocity.x += decel;
 	/*velocity = sf::Vector2f(std::fmaxf(0, velocity.x - decel), velocity.y - decel);*/
-	flip(velocity.x > 0.0f);
 }
 
 void Entity::flip(bool right)

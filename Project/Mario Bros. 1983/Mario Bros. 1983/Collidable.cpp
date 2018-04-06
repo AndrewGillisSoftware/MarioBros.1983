@@ -29,9 +29,9 @@ void Collidable::PlayAnimation(std::string name)
 		return;
 	animStartTime = GetTickCount64();
 	animation = assets->getAsset<Animation>(name);
-	animName = name; //anim fix **************************
+	animFrame = -1;
 }
-
+ 
 void Collidable::update()
 {
 	//Play animations
@@ -42,18 +42,15 @@ void Collidable::update()
 		rect.left += rect.width * frame;
 		setTextureRect(rect);
 
-		if (animation->sounds[frame].size() > 0 && /*(frame == 0 ||*/ (frame != animFrame || animName != prevAnimName))
+		if (animation->sounds[frame].size() > 0 && frame != animFrame)
 		{
 			sf::Sound *sound = assets->getAsset<sf::Sound>(animation->sounds[frame]);
 			sound->play();
 		}
 		animFrame = frame;
-		prevAnimName = animName; //anim fix **************************
 
 		if (frame >= animation->frameCount - 1 && !animation->loop)
 			animation = nullptr;
-
-		std::cout << frame << ", ";
 	}
 
 	//Set Collisions

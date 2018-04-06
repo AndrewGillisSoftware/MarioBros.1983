@@ -6,7 +6,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 	this->game = game;
 	for (int32_t x = 0; x < 32; x++)
 	{
-		for (int32_t y = 0; y < 24; y++)
+		for (int32_t y = 0; y < 28; y++)
 			tiles[x][y] = Collidable();
 	}
 
@@ -71,7 +71,7 @@ void Level::draw()
 
 	for (int32_t x = 0; x < 32; x++)
 	{
-		for (int32_t y = 0; y < 24; y++)
+		for (int32_t y = 0; y < 28; y++)
 		{
 			game->getWindow()->draw(tiles[x][y]);
 		}
@@ -80,7 +80,7 @@ void Level::draw()
 
 const Collidable *Level::getTile(uint8_t x, uint8_t y) const
 {
-	if (x >= 32 || y >= 24)
+	if (x >= 32 || y >= 28)
 		return nullptr;
 	return &tiles[x][y];
 }

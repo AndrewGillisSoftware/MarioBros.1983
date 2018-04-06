@@ -14,20 +14,18 @@ void Player::update()
 	{
 		velocity.y = -80.0f;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		velocity.y = 80.0f;
-	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		PlayAnimation("animations/run");
 		velocity.x = -80.0f;
+		lastDir = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		PlayAnimation("animations/run");
 		velocity.x = 80.0f;
+		lastDir = true;
 	}
 	else if (velocity.x != 0)
 	{
@@ -35,16 +33,6 @@ void Player::update()
 	}
 	else
 		PlayAnimation("animations/idle");
-	
-
-	/*if (fabsf(velocity.x) > 0.5f)
-		PlayAnimation("animations/run");
-	else if (fabsf(velocity.x) < 0.5f && fabsf(velocity.x) > 0.0f)
-	{
-		PlayAnimation("animations/slide");
-	}
-	else
-		PlayAnimation("animations/idle");*/
 }
 
 Player::~Player()
