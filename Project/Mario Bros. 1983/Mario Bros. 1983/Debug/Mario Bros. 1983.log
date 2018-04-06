@@ -1,15 +1,1 @@
-﻿  Collidable.cpp
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\collidable.cpp(72): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Generating Code...
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\collidable.cpp(72): warning C4172: returning address of local variable or temporary
-  Compiling...
-  Level.cpp
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\level.cpp(45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Game.cpp
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\game.cpp(7): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Entity.cpp
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(18): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
-c:\users\18amr01\documents\mariobros.1983\project\mario bros. 1983\mario bros. 1983\entity.cpp(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Mario Bros. 1983.vcxproj -> C:\Users\18amr01\Documents\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
-  Mario Bros. 1983.vcxproj -> C:\Users\18amr01\Documents\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.pdb (Partial PDB)
+﻿  Mario Bros. 1983.vcxproj -> C:\Users\18avg01\Documents\GitHub\MarioBros.1983\Project\Mario Bros. 1983\Debug\Mario Bros. 1983.exe
