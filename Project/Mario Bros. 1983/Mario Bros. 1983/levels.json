@@ -4,12 +4,20 @@
       "name": "Level 1",
       "textures": [
         {
-          "name": "pipe1",
-          "bounds": [ 0, 15, 32, 46 ]
+          "name": "pipeLeft",
+          "bounds": [ 0, 15, 32, 49 ]
         },
         {
-          "name": "pipe2",
-          "bounds": [ 224, 15, 32, 46 ]
+          "name": "pipeRight",
+          "bounds": [ 224, 15, 32, 49 ]
+        },
+        {
+          "name": "lowPipeLeft",
+          "bounds": [ 0, 191, 16, 17 ]
+        },
+        {
+          "name": "lowPipeRight",
+          "bounds": [ 240, 191, 16, 17 ]
         },
         {
           "name": "pow",
@@ -95,6 +103,30 @@
           "length": 32,
           "texture": "brickTile",
           "position": [ 0, 27 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "pipeLeft",
+          "position": [ 0, 2 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "pipeRight",
+          "position": [ 28, 2 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "lowPipeLeft",
+          "position": [ 0, 24 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "lowPipeRight",
+          "position": [ 30, 24 ]
         }
       ]
     }

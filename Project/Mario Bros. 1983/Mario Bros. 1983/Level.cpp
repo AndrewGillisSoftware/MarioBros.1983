@@ -51,7 +51,7 @@ Level::Level(Game *game, std::string file, std::string levelName)
 		break;
 	}
 
-	Player *player = new Player(this, game->getAssets(), sf::Vector2f(15, 250));
+	Player *player = new Player(this, game->getAssets(), sf::Vector2f(15,100));
 	entities.push_back(player);
 }
 
