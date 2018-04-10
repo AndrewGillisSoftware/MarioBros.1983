@@ -63,18 +63,18 @@ Level::~Level()
 
 void Level::draw()
 {
-	for (Entity *entity : entities)
-	{
-		entity->update();
-		game->getWindow()->draw(*entity);
-	}
-
 	for (int32_t x = 0; x < 32; x++)
 	{
 		for (int32_t y = 0; y < 28; y++)
 		{
 			game->getWindow()->draw(tiles[x][y]);
 		}
+	}
+
+	for (Entity *entity : entities)
+	{
+		entity->update();
+		game->getWindow()->draw(*entity);
 	}
 }
 

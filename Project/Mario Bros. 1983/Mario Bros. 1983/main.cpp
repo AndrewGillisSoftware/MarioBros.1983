@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(512, 447), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(512, 447), "MARIO, BROTHER!");
 	Game game(window);
 
 	while (window.isOpen())

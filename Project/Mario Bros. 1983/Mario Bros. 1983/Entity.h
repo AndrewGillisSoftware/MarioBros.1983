@@ -16,7 +16,7 @@ public:
 
 	virtual void update();
 
-	void calcVelocity();
+	virtual void calcVelocity();
 
 	void flip(bool right);
 
@@ -29,8 +29,9 @@ public:
 
 protected:
 	sf::Vector2f velocity;
+	sf::Clock clock;
 	bool lastDir;
 
 private:
-	sf::Clock clock;
+	
 };

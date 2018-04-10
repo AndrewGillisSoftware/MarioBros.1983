@@ -17,7 +17,7 @@ void Entity::update()
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = level->getTile(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
 	if (!tile || tile->getType() == ObjectType::None)
-		velocity.y = 50.0f;
+		velocity.y = 100.0f;
 	else if (getGlobalBounds().intersects(tile->getGlobalBounds()))
 	{
 		std::cout << "INTERSECTION";
@@ -33,16 +33,8 @@ void Entity::calcVelocity()
 	float deltaSeconds = deltaTime.asSeconds();
 	move(velocity * deltaSeconds);
 	float decel = this->getDecelRate();
-	if (velocity.x > 0.0f)
-		if (velocity.x < decel)
-			velocity.x = 0.0f;
-		else
-			velocity.x -= decel;
-	else if (velocity.x < 0.0f)
-		if (velocity.x > -decel)
-			velocity.x = 0.0f;
-		else
-			velocity.x += decel;
+	
+	
 	/*velocity = sf::Vector2f(std::fmaxf(0, velocity.x - decel), velocity.y - decel);*/
 }
 
