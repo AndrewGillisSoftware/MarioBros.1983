@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 Player::Player(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 	: Entity(level, assets, pos)
@@ -6,57 +7,35 @@ Player::Player(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 	setTexture(*assets->getAsset<sf::Texture>("textures/character_sheet"));
 }
 
-void Player::calcVelocity()
+void Player::update(float dt)
 {
-}
-
-void Player::update()
-{
-	Entity::update();
-
-	calcVelocity();
-
-	
-
-
-	if (velocity.x != 0.0f)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && onGround)
 	{
-		PlayAnimation("animations/slide");
-	}
-	else
-		PlayAnimation("animations/idle");
-
-}
-
-
-void Player::calcVelocity()
-{
-	
-
-
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
+		velocity.y = -300;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		if (momentum < momentumLimit)
-		{
-			momentum += 1;
-		}
-		PlayAnimation("animations/run");
+		velocity.x = std::max(-70.0f, velocity.x - 400 * dt);
+		PlayAnimation("run");
 		lastDir = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		PlayAnimation("animations/run");
+		velocity.x = std::min(70.0f, velocity.x + 400 * dt);
+		PlayAnimation("run");
 		lastDir = true;
 	}
-
-	sf::Time deltaTime = clock.restart();
-	float deltaSeconds = deltaTime.asSeconds();
-	move(velocity * deltaSeconds);
+	else if (velocity.x > 30.0f || velocity.x < -30.0f)
+	{
+		velocity.x *= 1 - dt * 4;
+		PlayAnimation("slide");
+	}
+	else
+	{
+		velocity.x = 0;
+		PlayAnimation("idle");
+	}
 }
 
 Player::~Player()

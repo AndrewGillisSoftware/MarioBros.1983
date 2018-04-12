@@ -1,6 +1,5 @@
 #pragma once
 #include "Entity.h"
-#include <cstdint>
 
 class Player : public Entity
 {
@@ -16,14 +15,14 @@ public:
 	float getAccelRate() { return 50.0f; }
 	float getDecelRate() { return 0.12f; }
 
-	void update();
+	void update(float dt);
 
 private:
 	uint8_t controls;
 
 	//Velocity Stuff
-	int velocityLimit = 80, momentumLimit = 50;
+	int velocityLimit = 80;
 	float accelRate = 2.0f;
-	float momentum = 0;
+	float time = 0;
 };
 

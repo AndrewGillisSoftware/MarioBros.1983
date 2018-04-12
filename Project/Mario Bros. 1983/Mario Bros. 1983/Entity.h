@@ -1,5 +1,6 @@
 #pragma once
 #include "Collidable.h"
+#include <cstdint>
 
 //static const float gravity = 50.0f;
 //static const float friction = 50.0f;
@@ -14,9 +15,8 @@ public:
 	Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos);
 	virtual ~Entity() { }
 
-	virtual void update();
-
-	virtual void calcVelocity();
+	void update();
+	virtual void update(float dt) { }
 
 	void flip(bool right);
 
@@ -30,7 +30,7 @@ public:
 protected:
 	sf::Vector2f velocity;
 	sf::Clock clock;
-	bool lastDir;
+	bool lastDir, onGround;
 
 private:
 	

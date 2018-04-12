@@ -25,6 +25,7 @@ Collidable::Collidable(const Level *level, const AssetManager *assets, sf::Vecto
 
 void Collidable::PlayAnimation(std::string name)
 {
+	name = "animations/" + name;
 	if (animation == assets->getAsset<Animation>(name))
 		return;
 	animStartTime = GetTickCount64();

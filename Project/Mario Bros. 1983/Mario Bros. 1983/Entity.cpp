@@ -11,31 +11,34 @@ Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 void Entity::update()
 {
 	Collidable::update();
-	calcVelocity();
 	flip(lastDir);
+	
+	Vector2f oldPosition = getPosition();
+	sf::Time deltaTime = clock.restart();
+	float deltaSeconds = deltaTime.asSeconds();
+	move(velocity * deltaSeconds);
 
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = level->getTile(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
-	if (!tile || tile->getType() == ObjectType::None)
-		velocity.y = 100.0f;
+	if (/*velocity.y >= -0.001 &&*/ (!tile || tile->getType() == ObjectType::None))
+	{
+		velocity.y = std::min(150.0f, velocity.y + 800 * deltaSeconds);
+		onGround = false;
+	}
 	else if (getGlobalBounds().intersects(tile->getGlobalBounds()))
 	{
 		std::cout << "INTERSECTION";
 		velocity.y = 0.0f;
-		setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
+		if (pos.y + getGlobalBounds().height >= tile->getPosition().y)
+		{
+			setPosition(pos.x, tile->getPosition().y + getGlobalBounds().height);
+		}
+		else
+			setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
+		onGround = true;
 	}
 
-}
-
-void Entity::calcVelocity()
-{
-	sf::Time deltaTime = clock.restart();
-	float deltaSeconds = deltaTime.asSeconds();
-	move(velocity * deltaSeconds);
-	float decel = this->getDecelRate();
-	
-	
-	/*velocity = sf::Vector2f(std::fmaxf(0, velocity.x - decel), velocity.y - decel);*/
+	update(deltaSeconds);
 }
 
 void Entity::flip(bool right)
