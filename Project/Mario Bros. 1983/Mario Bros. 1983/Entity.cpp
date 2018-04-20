@@ -19,23 +19,27 @@ void Entity::update()
 	move(velocity * deltaSeconds);
 
 	const sf::Vector2f &pos = getPosition();
+	float y = pos.y;
 	const Collidable *tile = level->getTile(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
-	if (/*velocity.y >= -0.001 &&*/ (!tile || tile->getType() == ObjectType::None))
+	if(!tile || tile->getType() == ObjectType::None)
 	{
 		velocity.y = std::min(150.0f, velocity.y + 800 * deltaSeconds);
 		onGround = false;
 	}
 	else if (getGlobalBounds().intersects(tile->getGlobalBounds()))
 	{
-		std::cout << "INTERSECTION";
 		velocity.y = 0.0f;
-		if (pos.y + getGlobalBounds().height >= tile->getPosition().y)
-		{
-			setPosition(pos.x, tile->getPosition().y + getGlobalBounds().height);
-		}
-		else
-			setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
+		setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
 		onGround = true;
+	}
+	
+	// the code above checks the tile BELOW the player, making this check impossible up there
+	// So, we must check for the tile at the player separately
+	tile = level->getTile(pos.x / 8, pos.y / 8);
+	if (tile && tile->getType() != ObjectType::None && getGlobalBounds().intersects(tile->getGlobalBounds()) && y > tile->getPosition().y)
+	{
+		// Go to the bottom of the tile
+		setPosition(pos.x, tile->getPosition().y + tile->getGlobalBounds().height);
 	}
 
 	update(deltaSeconds);

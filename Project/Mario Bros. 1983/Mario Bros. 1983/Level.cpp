@@ -74,6 +74,14 @@ void Level::draw()
 	for (Entity *entity : entities)
 	{
 		entity->update();
+
+		float x = entity->getPosition().x, y = entity->getPosition().y;
+		float l = game->getWindow()->getView().getViewport().left;
+		float c = game->getWindow()->getView().getCenter().x;
+		if (x < l - entity->getGlobalBounds().width / 2)
+			entity->setPosition(l + c, y);
+		else if (x > l + c)
+			entity->setPosition(l, y);
 		game->getWindow()->draw(*entity);
 	}
 }
