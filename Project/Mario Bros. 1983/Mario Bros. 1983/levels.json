@@ -129,6 +129,103 @@
           "position": [ 30, 24 ]
         }
       ]
+    },
+    {
+      "name": "test",
+      "textures": [
+        {
+          "name": "pipeLeft",
+          "bounds": [ 0, 15, 32, 49 ]
+        },
+        {
+          "name": "pipeRight",
+          "bounds": [ 224, 15, 32, 49 ]
+        },
+        {
+          "name": "lowPipeLeft",
+          "bounds": [ 0, 191, 16, 17 ]
+        },
+        {
+          "name": "lowPipeRight",
+          "bounds": [ 240, 191, 16, 17 ]
+        },
+        {
+          "name": "pow",
+          "bounds": [ 257, 1381, 16, 16 ]
+        },
+        {
+          "name": "pow2",
+          "bounds": [ 293, 1381, 16, 13 ]
+        },
+        {
+          "name": "pow3",
+          "bounds": [ 329, 1381, 16, 9 ]
+        },
+        {
+          "name": "blueTile",
+          "bounds": [ 257, 1447, 8, 8 ]
+        },
+        {
+          "name": "brickTile",
+          "bounds": [ 0, 208, 8, 8 ]
+        }
+      ],
+      "objects": [
+        {
+          "type": 0,
+          "length": 32,
+          "texture": "brickTile",
+          "position": [ 0, 26 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 10, 25 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 10, 24 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 10, 23 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 10, 22 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 10, 21 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 16, 25 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 20, 24 ]
+        },
+        {
+          "type": 0,
+          "length": 1,
+          "texture": "blueTile",
+          "position": [ 25, 23 ]
+        }
+      ]
     }
   ]
 }
