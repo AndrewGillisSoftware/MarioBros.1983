@@ -30,7 +30,7 @@ public:
 protected:
 	sf::Vector2f velocity;
 	sf::Clock clock;
-	bool lastDir, onGround, onWallL, onWallR;
+	bool lastDir, onGround /*onWallL, onWallR*/;
 
 private:
 	const Collidable *checkTileCollision(uint8_t x, uint8_t y);
