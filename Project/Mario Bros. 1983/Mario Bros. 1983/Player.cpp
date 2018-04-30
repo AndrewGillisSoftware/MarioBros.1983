@@ -12,18 +12,21 @@ void Player::update(float dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && onGround)
 	{
 		velocity.y = -300;
+		PlayAnimation("jump");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		velocity.x = std::max(-70.0f, velocity.x - 400 * dt);
-		PlayAnimation("run");
+		if (onGround)
+			PlayAnimation("run");
 		lastDir = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		velocity.x = std::min(70.0f, velocity.x + 400 * dt);
-		PlayAnimation("run");
+		if (onGround)
+			PlayAnimation("run");
 		lastDir = true;
 	}
 	else if (velocity.x > 30.0f || velocity.x < -30.0f)

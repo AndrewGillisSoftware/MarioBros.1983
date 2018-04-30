@@ -11,7 +11,7 @@ Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
 void Entity::update()
 {
 	Collidable::update();
-	int yIter;
+	int yIter, xIter;
 	flip(lastDir);
 	
 	Vector2f oldPosition = getPosition();
@@ -20,33 +20,49 @@ void Entity::update()
 	move(velocity * deltaSeconds);
 
 	const sf::Vector2f &pos = getPosition();
-	const Collidable *tile = checkTileCollision(pos.x / 8, (pos.y + getGlobalBounds().height) / 8);
-	if(!tile)
+	const Collidable *tile = nullptr;
+	const Collidable *aboveTile = nullptr;
+	for (int8_t i = -1; i < 2; i++)
+	{
+		tile = checkTileCollision((pos.x / 8) + i, (pos.y + getGlobalBounds().height) / 8);
+		if (tile)
+		{
+			velocity.y = 0.0f;
+			setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
+			onGround = true;
+			break;
+		}
+		aboveTile = checkTileCollision(((pos.x) / 8) + i, pos.y / 8);
+		if (aboveTile)
+			// Go to the bottom of the tile
+			setPosition(pos.x, aboveTile->getPosition().y + aboveTile->getGlobalBounds().height);
+	}
+
+	if (!tile)
 	{
 		velocity.y = std::min(150.0f, velocity.y + 800 * deltaSeconds);
 		onGround = false;
 	}
-	else
-	{
-		velocity.y = 0.0f;
-		setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
-		onGround = true;
-	}
 	
-	// the code above checks the tile BELOW the player, making this check impossible up there
-	// So, we must check for the tile at (above) the player separately
-	tile = checkTileCollision(((pos.x - getGlobalBounds().width / 2) / 8), pos.y / 8);
-	if (tile && pos.y > tile->getPosition().y)
-	{
-		// Go to the bottom of the tile
-		setPosition(pos.x, tile->getPosition().y + tile->getGlobalBounds().height);
-	}
-
 	////Vertical Collision
 	//for (int i = 0; i < ceilf(getGlobalBounds().width / 8.0f) + 1; i++)
 	//{
-	//	//Below Player
-	//	tile = checkTileCollision(((pos.x - (getGlobalBounds().width / 2)) / 8) + i, (pos.y + getGlobalBounds().height) / 8);
+	//	//if last iteration, test at max width rather than adding another tile's worth of height
+	//	if (i == ceilf(getGlobalBounds().width / 8.0f))
+	//		xIter = getGlobalBounds().width;
+	//	else
+	//		xIter = i;
+
+	//	//Check above tiles
+	//	tile = checkTileCollision(pos.x + xIter, pos.y / 8);
+	//	if (tile)
+	//	{
+	//		// Go to the bottom of the tile
+	//		setPosition(pos.x, tile->getPosition().y + tile->getGlobalBounds().height);
+	//	}
+
+	//	//Check below tiles
+	//	tile = checkTileCollision(((pos.x - getGlobalBounds().width / 2) + (xIter * 8)) / 8, pos.y + getGlobalBounds().height);
 	//	if (!tile)
 	//	{
 	//		velocity.y = std::min(150.0f, velocity.y + 800 * deltaSeconds);
@@ -57,15 +73,6 @@ void Entity::update()
 	//		velocity.y = 0.0f;
 	//		setPosition(pos.x, tile->getPosition().y - getGlobalBounds().height);
 	//		onGround = true;
-	//	}
-
-	//	// the code above checks the tile BELOW the player, making this check impossible up there
-	//	// So, we must check for the tile at (above) the player separately
-	//	tile = checkTileCollision(((pos.x - getGlobalBounds().width / 2) / 8) + i, pos.y / 8);
-	//	if (tile && pos.y > tile->getPosition().y)
-	//	{
-	//		// Go to the bottom of the tile
-	//		setPosition(pos.x, tile->getPosition().y + tile->getGlobalBounds().height);
 	//	}
 	//}
 
@@ -85,7 +92,7 @@ void Entity::update()
 		{
 			velocity.x = 0;
 			setPosition(tile->getPosition().x + tile->getGlobalBounds().width + (getGlobalBounds().width / 2), pos.y);
-			break;
+			//break;
 		}
 
 		//Check right tiles
