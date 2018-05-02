@@ -63,42 +63,36 @@
     },
     {
       "name": "middleTile",
-      "frames": 6,
+      "frames": 5,
       "speed": 100,
-      "bounds": [ 135, 749, 8, 8 ],
+      "bounds": [ 126, 748, 8, 9 ],
       "sounds": [
         {
-          "frames": [ 2, 5 ],
-          "name": "sounds/jump"
         }
       ],
-      "loop": true
+      "loop": false
     },
     {
       "name": "leftTile",
-      "frames": 6,
+      "frames": 5,
       "speed": 100,
-      "bounds": [ 135, 749, 8, 8 ],
+      "bounds": [ 126, 761, 8, 11 ],
       "sounds": [
         {
-          "frames": [ 2, 5 ],
-          "name": "sounds/jump"
         }
       ],
-      "loop": true
+      "loop": false
     },
     {
-      "name": "leftTile",
-      "frames": 6,
+      "name": "rightTile",
+      "frames": 5,
       "speed": 100,
-      "bounds": [ 135, 749, 8, 8 ],
+      "bounds": [ 126, 775, 8, 11 ],
       "sounds": [
         {
-          "frames": [ 2, 5 ],
-          "name": "sounds/jump"
         }
       ],
-      "loop": true
+      "loop": false
     }
   ]
 }

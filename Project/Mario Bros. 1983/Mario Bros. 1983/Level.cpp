@@ -68,6 +68,8 @@ void Level::draw()
 		for (int32_t y = 0; y < 28; y++)
 		{
 			game->getWindow()->draw(tiles[x][y]);
+			if (tiles[x][y].getType() == ObjectType::Tile)
+				tiles[x][y].update();
 		}
 	}
 
@@ -86,7 +88,7 @@ void Level::draw()
 	}
 }
 
-const Collidable *Level::getTile(uint8_t x, uint8_t y) const
+Collidable *Level::getTile(uint8_t x, uint8_t y)
 {
 	if (x >= 32 || y >= 28)
 		return nullptr;

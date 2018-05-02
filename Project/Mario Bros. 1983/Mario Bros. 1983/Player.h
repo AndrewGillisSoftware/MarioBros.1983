@@ -4,10 +4,8 @@
 class Player : public Entity
 {
 public:
-	Player(const Level *level, const AssetManager *assets, sf::Vector2f pos);
+	Player(Level *level, const AssetManager *assets, sf::Vector2f pos);
 	~Player();
-
-	void calcVelocity();
 
 	float getGravity() { return 50.0f; }
 	float getFriction() { return 50.0f; }

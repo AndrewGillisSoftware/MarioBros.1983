@@ -19,7 +19,7 @@ class Collidable : public sf::Sprite
 {
 public:
 	Collidable();
-	Collidable(const Level *level, const AssetManager *assets, sf::Vector2f pos);
+	Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos);
 	virtual ~Collidable() { }
 
 	void PlayAnimation(std::string name);
@@ -33,7 +33,7 @@ public:
 
 protected:
 	const AssetManager *assets;
-	const Level *level;
+	Level *level;
 
 private:
 	const Animation *animation;

@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 
-Entity::Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos)
+Entity::Entity(Level *level, const AssetManager *assets, sf::Vector2f pos)
 	: Collidable(level, assets, pos)
 {
 }
@@ -19,9 +19,11 @@ void Entity::update()
 	float deltaSeconds = deltaTime.asSeconds();
 	move(velocity * deltaSeconds);
 
+	static const std::string tileAnimations[3] = { "leftTile", "middleTile", "rightTile" };
+
 	const sf::Vector2f &pos = getPosition();
 	const Collidable *tile = nullptr;
-	const Collidable *aboveTile = nullptr;
+	Collidable *aboveTile = nullptr;
 	for (int8_t i = -1; i < 2; i++)
 	{
 		tile = checkTileCollision((pos.x / 8) + i, (pos.y + getGlobalBounds().height) / 8);
@@ -33,9 +35,12 @@ void Entity::update()
 			break;
 		}
 		aboveTile = checkTileCollision(((pos.x) / 8) + i, pos.y / 8);
-		if (aboveTile)
+		if (aboveTile && aboveTile->getType() == ObjectType::Tile)
+		{
+			aboveTile->PlayAnimation(tileAnimations[i + 1]);
 			// Go to the bottom of the tile
 			setPosition(pos.x, aboveTile->getPosition().y + aboveTile->getGlobalBounds().height);
+		}
 	}
 
 	if (!tile)
@@ -107,9 +112,9 @@ void Entity::update()
 	update(deltaSeconds);
 }
 
-const Collidable *Entity::checkTileCollision(uint8_t x, uint8_t y)
+Collidable *Entity::checkTileCollision(uint8_t x, uint8_t y)
 {
-	const Collidable *tile = level->getTile(x, y);
+	Collidable *tile = level->getTile(x, y);
 	return tile && tile->getType() != ObjectType::None && getGlobalBounds().intersects(tile->getGlobalBounds()) ? tile : nullptr;
 }
 

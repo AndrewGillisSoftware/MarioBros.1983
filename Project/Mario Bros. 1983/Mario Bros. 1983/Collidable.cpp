@@ -12,7 +12,7 @@ Collidable::Collidable()
 	type = ObjectType::None;
 }
 
-Collidable::Collidable(const Level *level, const AssetManager *assets, sf::Vector2f pos)
+Collidable::Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos)
 {
 	this->level = level;
 	this->assets = assets;

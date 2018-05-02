@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(const Level *level, const AssetManager *assets, sf::Vector2f pos)
+Player::Player(Level *level, const AssetManager *assets, sf::Vector2f pos)
 	: Entity(level, assets, pos)
 {
 	setTexture(*assets->getAsset<sf::Texture>("textures/character_sheet"));

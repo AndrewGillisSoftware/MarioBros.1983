@@ -12,7 +12,7 @@
 class Entity : public Collidable
 {
 public:
-	Entity(const Level *level, const AssetManager *assets, sf::Vector2f pos);
+	Entity(Level *level, const AssetManager *assets, sf::Vector2f pos);
 	virtual ~Entity() { }
 
 	void update();
@@ -33,5 +33,5 @@ protected:
 	bool lastDir, onGround /*onWallL, onWallR*/;
 
 private:
-	const Collidable *checkTileCollision(uint8_t x, uint8_t y);
+	Collidable *checkTileCollision(uint8_t x, uint8_t y);
 };
