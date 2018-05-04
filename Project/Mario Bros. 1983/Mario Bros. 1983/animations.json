@@ -5,6 +5,7 @@
       "frames": 6,
       "speed": 100,
       "bounds": [ 1, 12, 18, 21 ],
+      "offsets": [],
       "sounds": [
         {
           "frames": [ 2, 5 ],
@@ -17,6 +18,7 @@
       "name": "idle",
       "frames": 1,
       "speed": 200,
+      "offsets": [],
       "bounds": [ 109, 12, 18, 21 ],
       "sounds": [
       ],
@@ -26,6 +28,7 @@
       "name": "jump",
       "frames": 1,
       "speed": 200,
+      "offsets": [],
       "bounds": [ 127, 10, 18, 23 ],
       "sounds": [
         {
@@ -39,6 +42,7 @@
       "name": "slide",
       "frames": 3,
       "speed": 150,
+      "offsets": [],
       "bounds": [ 1, 46, 18, 21 ],
       "sounds": [
         {
@@ -52,6 +56,7 @@
       "name": "shell",
       "frames": 6,
       "speed": 100,
+      "offsets": [],
       "bounds": [ 1, 137, 18, 16 ],
       "sounds": [
         {
@@ -63,9 +68,10 @@
     },
     {
       "name": "middleTile",
-      "frames": 5,
+      "frames": 7,
       "speed": 100,
-      "bounds": [ 126, 748, 8, 9 ],
+      "offsets": [ 0, -2, -3, -4, 4, 3, 2],
+      "bounds": [ 337, 1495, 8, 9 ],
       "sounds": [
         {
         }
@@ -74,9 +80,10 @@
     },
     {
       "name": "leftTile",
-      "frames": 5,
+      "frames": 7,
       "speed": 100,
-      "bounds": [ 126, 761, 8, 11 ],
+      "bounds": [ 337, 1508, 8, 11 ],
+      "offsets": [],
       "sounds": [
         {
         }
@@ -85,9 +92,10 @@
     },
     {
       "name": "rightTile",
-      "frames": 5,
+      "frames": 7,
       "speed": 100,
-      "bounds": [ 126, 775, 8, 11 ],
+      "offsets": [],
+      "bounds": [ 337, 1522, 8, 11 ],
       "sounds": [
         {
         }

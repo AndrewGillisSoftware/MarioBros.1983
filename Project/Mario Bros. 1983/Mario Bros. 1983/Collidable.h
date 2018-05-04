@@ -19,7 +19,7 @@ class Collidable : public sf::Sprite
 {
 public:
 	Collidable();
-	Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos);
+	Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos, ObjectType type = ObjectType::None);
 	virtual ~Collidable() { }
 
 	void PlayAnimation(std::string name);
@@ -40,4 +40,5 @@ private:
 	uint64_t animStartTime;
 	int32_t animFrame;
 	ObjectType type;
+	float initY;
 };

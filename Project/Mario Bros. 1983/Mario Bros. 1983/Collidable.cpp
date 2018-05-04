@@ -12,7 +12,7 @@ Collidable::Collidable()
 	type = ObjectType::None;
 }
 
-Collidable::Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos)
+Collidable::Collidable(Level *level, const AssetManager *assets, sf::Vector2f pos, ObjectType type)
 {
 	this->level = level;
 	this->assets = assets;
@@ -20,7 +20,8 @@ Collidable::Collidable(Level *level, const AssetManager *assets, sf::Vector2f po
 	animation = nullptr;
 	animStartTime = 0;
 	animFrame = -1;
-	type = ObjectType::Tile;
+	this->type = type;
+	initY = pos.y;
 }
 
 void Collidable::PlayAnimation(std::string name)
@@ -43,12 +44,19 @@ void Collidable::update()
 		rect.left += rect.width * frame;
 		setTextureRect(rect);
 
-		if (animation->sounds[frame].size() > 0 && frame != animFrame)
+		if (frame != animFrame)
 		{
-			sf::Sound *sound = assets->getAsset<sf::Sound>(animation->sounds[frame]);
-			sound->play();
+			if (animation->sounds[frame].size() > 0)
+			{
+				sf::Sound *sound = assets->getAsset<sf::Sound>(animation->sounds[frame]);
+				sound->play();
+			}
+
+			if (animation->offsets[frame])
+				setPosition(getPosition().x, initY + animation->offsets[frame]);
+
+			animFrame = frame;
 		}
-		animFrame = frame;
 
 		if (frame >= animation->frameCount - 1 && !animation->loop)
 			animation = nullptr;

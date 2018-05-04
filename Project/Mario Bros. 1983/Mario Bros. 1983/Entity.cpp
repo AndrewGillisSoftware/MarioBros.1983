@@ -39,7 +39,7 @@ void Entity::update()
 		{
 			aboveTile->PlayAnimation(tileAnimations[i + 1]);
 			// Go to the bottom of the tile
-			setPosition(pos.x, aboveTile->getPosition().y + aboveTile->getGlobalBounds().height);
+			setPosition(pos.x, (aboveTile->getPosition().y / 8) * 8);
 		}
 	}
 

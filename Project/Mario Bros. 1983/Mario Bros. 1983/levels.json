@@ -42,88 +42,88 @@
       ],
       "objects": [
         {
-          "type": 1,
+          "type": 2,
           "length": 1,
           "texture": "pow",
           "position": [ 15, 20 ]
         },
 
         {
-          "type": 0,
+          "type": 1,
           "length": 14,
           "texture": "blueTile",
           "position": [ 0, 8 ]
         },
         {
-          "type": 0,
+          "type": 1,
           "length": 14,
           "texture": "blueTile",
           "position": [ 18, 8 ]
         },
 
         {
-          "type": 0,
+          "type": 1,
           "length": 4,
           "texture": "blueTile",
           "position": [ 0, 15 ]
         },
         {
-          "type": 0,
+          "type": 1,
           "length": 4,
           "texture": "blueTile",
           "position": [ 28, 15 ]
         },
         {
-          "type": 0,
+          "type": 1,
           "length": 18,
           "texture": "blueTile",
           "position": [ 7, 14 ]
         },
 
         {
-          "type": 0,
+          "type": 1,
           "length": 11,
           "texture": "blueTile",
           "position": [ 0, 20 ]
         },
         {
-          "type": 0,
+          "type": 1,
           "length": 11,
           "texture": "blueTile",
           "position": [ 21, 20 ]
         },
         {
-          "type": 0,
+          "type": 1,
           "length": 32,
           "texture": "brickTile",
           "position": [ 0, 26 ]
         },
         {
-          "type": 0,
+          "type": 3,
           "length": 32,
           "texture": "brickTile",
           "position": [ 0, 27 ]
         },
         {
-          "type": 0,
+          "type": 3,
           "length": 1,
           "texture": "pipeLeft",
           "position": [ 0, 2 ]
         },
         {
-          "type": 0,
+          "type": 3,
           "length": 1,
           "texture": "pipeRight",
           "position": [ 28, 2 ]
         },
         {
-          "type": 0,
+          "type": 3,
           "length": 1,
           "texture": "lowPipeLeft",
           "position": [ 0, 24 ]
         },
         {
-          "type": 0,
+          "type": 3,
           "length": 1,
           "texture": "lowPipeRight",
           "position": [ 30, 24 ]
