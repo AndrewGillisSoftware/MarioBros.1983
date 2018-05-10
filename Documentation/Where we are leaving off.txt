@@ -1,0 +1,7 @@
+Our Mario Bros 1983 c++ creation as of now has a near complete framework/engine to build off of.
+Loading and distributing assets is managed by a completed assetmanager class, working with sounds, textures, and animations. 
+Base classes are made for the basic structure of the game; entity, player, collidable, level and Game. 
+Tied in with them is a working animation modulefor collidables. Collidable is at the base of the heirarchy, 
+and is a child of sfml's sprite. A crude method for creating level files has been created, but needs work. Both animations and level files
+are read in, using json file library methods. Things that we left off refining and constructing were the collisions, developing enemies and creating their
+animations, creating sounds for the game (use sfxr for good sound creation), and level creation. Those would be places to start.
